@@ -6,9 +6,10 @@
     "build": "next build",
     "dev": "next dev --turbo",
     "start": "next start",
-    "postinstall": "fumadocs-mdx",
+    "postinstall": "fumadocs-mdx && bun lefthook install",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "lint:commit": "commitlint --edit"
   },
   "dependencies": {
     "fumadocs-core": "15.8.5",
@@ -22,14 +23,18 @@
     "shiki": "^3.13.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.2.6",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@types/mdx": "^2.0.13",
     "@types/node": "24.6.2",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
-    "typescript": "^5.9.3",
-    "@types/mdx": "^2.0.13",
-    "@tailwindcss/postcss": "^4.1.14",
-    "tailwindcss": "^4.1.14",
+    "lefthook": "^1.13.6",
     "postcss": "^8.5.6",
-    "@biomejs/biome": "^2.2.5"
-  }
+    "tailwindcss": "^4.1.14",
+    "typescript": "^5.9.3"
+  },
+  "trustedDependencies": ["lefthook"]
 }
