@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "rimraf ./.next/* && bun run gen:docs && next build",
     "dev": "next dev --turbo",
     "start": "next start",
     "postinstall": "fumadocs-mdx && bun lefthook install",
     "lint": "biome check",
     "format": "biome format --write",
-    "lint:commit": "commitlint --edit"
+    "lint:commit": "commitlint --edit",
+    "gen:docs": "bun ./scripts/generate-docs.ts"
   },
   "dependencies": {
     "fumadocs-core": "15.8.5",
@@ -20,6 +21,7 @@
     "next": "15.5.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "rimraf": "^6.0.1",
     "shiki": "^3.13.0"
   },
   "devDependencies": {
@@ -36,5 +38,7 @@
     "tailwindcss": "^4.1.14",
     "typescript": "^5.9.3"
   },
-  "trustedDependencies": ["lefthook"]
+  "trustedDependencies": [
+    "lefthook"
+  ]
 }
